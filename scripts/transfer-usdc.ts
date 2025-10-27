@@ -5,13 +5,21 @@ import dotenv from 'dotenv';
 
 // Load environment variables
 dotenv.config({ path: '.env.local' });
+dotenv.config({ path: 'agents/.env' }); // Load agent addresses
 
 async function transferUSDC() {
   console.log('💸 USDC Transfer Script\n');
 
-  const recipient1 = '0xAbF01df9428EaD5418473A7c91244826A3Af23b3';
-  const recipient2 = '0xeDeE7Ee27e99953ee3E99acE79a6fbc037E31C0D';
+  // Load agent addresses from environment
+  const recipient1 = process.env.AGENT_A_PUBLIC_ADDRESS;
+  const recipient2 = process.env.AGENT_B_PUBLIC_ADDRESS;
   const amount1 = 150; // USDC to first recipient
+
+  if (!recipient1 || !recipient2) {
+    console.error('❌ Agent addresses not found in agents/.env');
+    console.error('   Required: AGENT_A_PUBLIC_ADDRESS, AGENT_B_PUBLIC_ADDRESS');
+    process.exit(1);
+  }
 
   try {
     // Initialize wallet

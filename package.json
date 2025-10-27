@@ -1,7 +1,29 @@
 {
   "name": "agent-bid",
   "version": "0.1.0",
-  "private": true,
+  "description": "Autonomous AI agents competing for Basenames using x402 payments and economic signaling",
+  "keywords": [
+    "x402",
+    "ai-agents",
+    "blockchain",
+    "payments",
+    "claude",
+    "llamaindex",
+    "basenames",
+    "base",
+    "web3",
+    "autonomous-agents"
+  ],
+  "author": "Ash Nouruzi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Must-be-Ash/agent-bid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Must-be-Ash/agent-bid/issues"
+  },
+  "homepage": "https://github.com/Must-be-Ash/agent-bid#readme",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
@@ -11,10 +33,13 @@
     "agent:b": "tsx agents/agentB.ts",
     "agent:ai:a": "tsx agents/intelligentAgentA.ts",
     "agent:ai:b": "tsx agents/intelligentAgentB.ts",
-    "fund": "tsx fund-wallet.ts",
-    "fund:agents": "tsx fund-agents.ts",
-    "balance": "tsx check-balance.ts",
-    "transfer": "tsx transfer-usdc.ts",
+    "fund": "tsx scripts/fund-wallet.ts",
+    "fund:agents": "tsx scripts/fund-agents.ts",
+    "balance": "tsx scripts/check-balance.ts",
+    "transfer": "tsx scripts/transfer-usdc.ts",
+    "export:key": "tsx scripts/export-private-key.ts",
+    "debug:firecrawl": "tsx scripts/debug-firecrawl.ts",
+    "test:firecrawl": "tsx scripts/test-firecrawl-402.ts",
     "clean:db": "tsx scripts/clean-db.ts"
   },
   "dependencies": {

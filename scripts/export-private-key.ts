@@ -11,9 +11,20 @@ async function exportPrivateKey() {
     // Initialize CDP client
     const cdp = new CdpClient();
     
-    // Export private key using the wallet address
+    // Export private key using the wallet address from environment
+    const serverWalletAddress = process.env.SERVER_WALLET_ADDRESS;
+    
+    if (!serverWalletAddress) {
+      throw new Error('SERVER_WALLET_ADDRESS environment variable is not set');
+    }
+    
+    // Validate that the address is a valid hex address
+    if (!serverWalletAddress.startsWith('0x') || serverWalletAddress.length !== 42) {
+      throw new Error('SERVER_WALLET_ADDRESS must be a valid Ethereum address (0x...)');
+    }
+    
     const privateKey = await cdp.evm.exportAccount({
-      address: '0x16CA9e69E97EF3E740f573E79b913183BF500C18'
+      address: serverWalletAddress as `0x${string}`
     });
     
     console.log('✅ Private key exported successfully!');
