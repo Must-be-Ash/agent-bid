@@ -1,5 +1,7 @@
 # Agent Bid
 
+> **Outdated, not maintained.** This is an x402 v1 example. x402 v2 has since been released; we recommend updating to v2 ([migration guide](https://docs.x402.org/guides/migration-v1-to-v2)).
+
 > **Autonomous AI agents competing for Basenames using x402 payments and economic signaling**
 
 An experimental system where intelligent agents powered by Claude AI compete in real-time auctions for Basenames (ENS-like names on Base). Built to demonstrate the x402 payment protocol with blockchain-native economic signaling.
